@@ -8,7 +8,7 @@ Quando("eu preencher meu {string} e {string} errados") do |email, senha|
     find("input[name='commit']").click
     
     
-    # if page.has_text? ('so you can’t sign in to it directly. Try signing into your personal account and then using the context switcher on your dashboard: Don’t have a personal account? Talk to someone in your organization about getting access.')
+    # if page.has_text? ('so you canâ€™t sign in to it directly. Try signing into your personal account and then using the context switcher on your dashboard: Donâ€™t have a personal account? Talk to someone in your organization about getting access.')
     #     visit 'https://github.com/login'
     # end
 
