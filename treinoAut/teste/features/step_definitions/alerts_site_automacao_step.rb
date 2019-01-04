@@ -82,5 +82,5 @@ promptJs
     end
     
     Entao("exibir o seguinte {string}") do |string|
-        expect(page).to have_css("p#result", :text=>"Você digitou: " + "#{string}" )
+        expect(page).to have_css("p#result", :text=>"VocÃª digitou: " + "#{string}" )
     end
