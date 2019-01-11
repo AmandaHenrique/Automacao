@@ -1,5 +1,9 @@
 #Cadastro Invalido
 Quando("eu clicar no botao de registro no site Soluna") do
+    steps %Q{
+        Dado que estou no site soluna
+    }
+    #peguei no step login e nao preciso repetir no outro la em baixo pq esse Quando esta no contexto
     find('ul.navbar-nav.ml-auto')
     find('a' , :text => 'Registre-se').click
 end
@@ -37,7 +41,8 @@ Quando("preencher meu {string} {string} {string} {string} {string} {string} {str
     find("label[class='form-check-label']", text:genero).click
 
     if(receberEmail == "true")
-        find('#receber-email').set(true)
+        #find('#receber-email').set(true) --,pode ser esse tambem
+        check('receber-email', allow_label_click: true)
     end
 
     click_button('Submit')

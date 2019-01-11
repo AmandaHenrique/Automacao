@@ -3,23 +3,21 @@ Dado("que estou no site Automacao do Batista") do
 end                                                                  
     
   
-alert js
+#alert js
     Quando("eu clicar no botao clique para js alert") do                 
-        find('ul > li:nth-child(1) > button').click
+        first("button[class='btn  waves-light green']").click
     end                                                                  
                                                                         
     Quando("aparecer um alert com a mensagem {string}") do |mensagem|      
-        alert = page.driver.browser.switch_to.alert
+        @alert = page.driver.browser.switch_to.alert
         #acha o alert na pagina
 
-        expect(alert.text).to eq mensagem
+        expect(@alert.text).to eq mensagem
         #entao eu espero que o alert tenha um texto que seja igual a string                                        
     end                                                                  
                                                                         
     Quando("clicar no botao ok dentro do js alert") do                   
-        alert = page.driver.browser.switch_to.alert
-        #acha o alert na pagina, nao da pra reaproveitar a variavel
-        alert.accept
+        @alert.accept
         #pego o alert guardado na minha variavel e clico no aceitar            
     end                                                                  
                                                                         
@@ -29,20 +27,18 @@ alert js
 
 
 
-
-confirm js
+#confirm js
     Quando("eu clicar no botao clique para js confirm") do
-        find('ul > li:nth-child(4) > button').click
+        find("button[onclick='jsConfirm()']").click
     end
 
     Quando("aparecer um alert com a seguinte mensagem {string}") do |mensagem|      
-        alert = page.driver.browser.switch_to.alert
-        expect(alert.text).to eq(mensagem)                                          
+        @confirm = page.driver.browser.switch_to.alert
+        expect(confirm.text).to eq(mensagem)                                          
     end         
 
     Quando("clicar no botao ok dentro do js confirm") do
-        alert = page.driver.browser.switch_to.alert
-        alert.accept
+        @confirm.accept
     end
     
     Entao("exibir a mensagem {string}") do |mensagem|
@@ -50,37 +46,35 @@ confirm js
     end
 
 
-cancel js                                                                                                                        
+#cancel js                                                                                                                        
     Quando("clicar no botao cancel dentro do js confirm") do              
-        alert = page.driver.browser.switch_to.alert
-        alert.dismiss        
+       @cancel = page.driver.browser.switch_to.alert
+       @cancel.dismiss        
     end   
 
     Entao("exibir a seguinte mensagem {string}") do |string|
         expect(page).to have_css("p#result", :text=>string)
     end
 
-promptJs
+#promptJs
     Quando("eu clicar no botao clique para js prompt") do
         find('ul > li:nth-child(7) > button').click
     end
     
     Quando("aparecer um prompt com a mensagem {string}") do |mensagem|
-        alert = page.driver.browser.switch_to.alert
-        expect(alert.text).to eql mensagem
+        @prompt = page.driver.browser.switch_to.alert
+        expect(@prompt.text).to eql mensagem
     end
     
     Quando("eu digitar a seguinte {string}") do |string|
-        alert = page.driver.browser.switch_to.alert
-        alert.send_keys(string)
+        @prompt.send_keys(string)
         sleep 2
     end
     
     Quando("clicar no botao ok dentro do prompt js") do
-        alert = page.driver.browser.switch_to.alert
-        alert.accept
+        @prompt.accept
     end
     
     Entao("exibir o seguinte {string}") do |string|
-        expect(page).to have_css("p#result", :text=>"VocÃª digitou: " + "#{string}" )
+        expect(page).to have_css("p#result", :text=>"Você digitou: #{string}" )
     end

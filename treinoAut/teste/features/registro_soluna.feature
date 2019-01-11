@@ -4,7 +4,7 @@
 Funcionalidade: Registro do site Soluna
 
 Contexto:
-    Dado que estou no site soluna
+    #Dado que estou no site soluna
     # Quando tenho um 'Dado que' igual ao outro, nao preciso coloca-lo no step
     # pois ele ja sabe que é igual e já faz
     Quando eu clicar no botao de registro no site Soluna

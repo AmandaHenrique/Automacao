@@ -4,7 +4,7 @@ end
   
 Quando("eu clicar em iteracoes na lista de funcionalidades") do
     find("ul[class='collapsible collapsible-accordion']")
-    find('a', :text=>'IteraÃ§Ãµes').click
+    find('a', :text=>'Iterações').click
 end
   
 Quando("clicar na opcao drag and drop") do

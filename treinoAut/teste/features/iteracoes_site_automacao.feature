@@ -1,7 +1,7 @@
 #language: pt
 # encoding: utf-8
 
-Funcionalidade: Iteraรงoes no site Automacao do batista
+Funcionalidade: Iterações no site Automacao do batista
 
     Contexto:
         Dado que estou no site Automacaoo do Batista
